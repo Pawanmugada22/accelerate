@@ -8,3 +8,5 @@
  */
 
 rootProject.name = 'accelerate'
+include 'client-sdlc'
+include 'sdlc'

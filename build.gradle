@@ -4,3 +4,37 @@
  * This is a general purpose Gradle build.
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds
  */
+
+ task ang_prod_build {
+     doLast {
+         println 'Building angular for production'
+         def a="gradle :client-sdlc:npm_run_build_--_--prod"
+         def b=a.execute()
+         b.waitFor()
+     }
+ }
+
+task move_ang_prod(type: Copy) {
+     println 'Moving files to spring boot project'
+     from "client-sdlc/dist/client-sdlc"
+     into "sdlc/src/main/resources/static"
+}
+
+task spring_prod_war {
+     doLast {
+         println 'Building spring boot war'
+         def a="gradle :sdlc:bootWar"
+         def b=a.execute()
+         b.waitFor()
+     }
+}
+
+task build_prod_war {
+         dependsOn ':ang_prod_build'
+         dependsOn ':move_ang_prod'
+         dependsOn ':spring_prod_war'
+      doLast {
+         println 'War is ready !!!'
+      }
+}
+
