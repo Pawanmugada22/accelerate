@@ -1,0 +1,6 @@
+[submodule "sdlc"]
+	path = sdlc
+	url = https://github.com/Pawanmugada22/sdlc.git
+[submodule "client-sdlc"]
+	path = client-sdlc
+	url = https://github.com/Pawanmugada22/client-sdlc.git
