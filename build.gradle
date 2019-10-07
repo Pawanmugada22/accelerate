@@ -4,8 +4,3 @@
  * This is a general purpose Gradle build.
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds
  */
-task ang_prod_build {
-    def a="./client-sdlc/gradlew npm_run_build_--_--prod"
-    def b=a.execute()
-    b.waitFor()
-}
