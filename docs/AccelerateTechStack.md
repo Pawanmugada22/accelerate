@@ -6,6 +6,7 @@ Tech Stack :
 > Hosting - Apache Tomcat/Nginx
 > Rest Services - Spring Boot
 > Database - Postgres
+> Database Versioning - 
 > Frontend - Angular
 > Build - Gradle
 
@@ -25,7 +26,6 @@ Root Project : **accelerate**
     ├── README.md
     ├── sdlc
     └── settings.gradle
-    
 ```
 Front-end Project : **client-sdlc** 
 ```
@@ -49,7 +49,6 @@ client-sdlc
     ├── tsconfig.json
     ├── tsconfig.spec.json
     └── tslint.json
-
 ```
 Back-end Project : **sdlc**
 ```
@@ -95,7 +94,6 @@ sdlc
                 └── accelerate
                     └── sdlc
                         └── SdlcApplicationTests.java
-
 ```
 
 Database Architecture :
