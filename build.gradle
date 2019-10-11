@@ -14,13 +14,24 @@
      }
  }
 
+task copy_task {
+        copy_task.dependsOn 'ang_prod_build'
+     doLast {
+         println 'Moving files to spring boot project'
+         def a="gradle :move_ang_prod"
+         def b=a.execute()
+         b.waitFor()
+    }
+}
+
 task move_ang_prod(type: Copy) {
-     println 'Moving files to spring boot project'
-     from "client-sdlc/dist/client-sdlc"
-     into "sdlc/src/main/resources/static"
+         println 'Moving files to spring boot project'
+         from "client-sdlc/dist/client-sdlc"
+         into "sdlc/src/main/resources/static"
 }
 
 task spring_prod_war {
+     spring_prod_war.dependsOn 'copy_task'
      doLast {
          println 'Building spring boot war'
          def a="gradle :sdlc:bootWar"
@@ -30,9 +41,7 @@ task spring_prod_war {
 }
 
 task build_prod_war {
-         dependsOn ':ang_prod_build'
-         dependsOn ':move_ang_prod'
-         dependsOn ':spring_prod_war'
+      build_prod_war.dependsOn 'spring_prod_war'
       doLast {
          println 'War is ready !!!'
       }
