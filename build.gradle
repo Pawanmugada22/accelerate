@@ -17,7 +17,6 @@
 task copy_task {
         copy_task.dependsOn 'ang_prod_build'
      doLast {
-         println 'Moving files to spring boot project'
          def a="gradle :move_ang_prod"
          def b=a.execute()
          b.waitFor()
@@ -40,6 +39,16 @@ task spring_prod_war {
      }
 }
 
+task spring_prod_jar {
+	spring_prod_jar.dependsOn 'copy_task'
+	doLast {
+		println 'Building spring boot jar'
+		def a="gradle :sdlc:bootJar"
+		def b=a.execute()
+		b.waitFor()
+	}
+}
+
 task build_prod_war {
       build_prod_war.dependsOn 'spring_prod_war'
       doLast {
@@ -47,3 +56,9 @@ task build_prod_war {
       }
 }
 
+task build_prod_jar {
+	build_prod_jar.dependsOn 'spring_prod_jar'
+	doLast {
+		println 'Jar is ready !!!'
+	}
+}
