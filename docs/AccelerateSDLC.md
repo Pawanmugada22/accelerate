@@ -76,6 +76,7 @@ Accelerate (SDLC Management Tool)
 4) D - Task is dependant on other task or the resource require help from another resource.
 5) W - Task is waiting for sign-off, resource has completed the task it either being reviewed or yet to be reviewed for sign-off.
 6) C - Task is completed, resource has completed the task.
+7) D - Task is completed and crossed out.
 
 ######Issue states :######
 
@@ -85,6 +86,14 @@ Accelerate (SDLC Management Tool)
 4) T - Fix is given to the stakeholders yet not completely resolved once and for all.
 5) P - Issue is re-opened, solution given by the resource is in-adequete or not correct, asking the resource to come up with another solution
 6) C - Solution to the issue is reviewed and signed-off or ready for production.
+
+######Personnal task states :######
+
+1) P - Task is pending, resource is busy with other tasks.
+2) B - Task is blocked, resource requires more clarity about the task from stakeholders.
+3) I - Task is in-progress, resource is working in completing the task.
+4) C - Task is completed, resource has completed the task.
+5) D - Task is completed and crossed out.
 
 
 
